@@ -1,0 +1,22 @@
+const salesData = [120, 180, 90, 150, 220, 170]; // Initial data
+const chart = document.getElementById('chart');
+
+// Render bars
+function renderChart(data) {
+  chart.innerHTML = '';
+  data.forEach(value => {
+    const bar = document.createElement('div');
+    bar.className = 'bar';
+    bar.style.height = value + 'px';
+    bar.textContent = value;
+    chart.appendChild(bar);
+  });
+}
+
+renderChart(salesData);
+
+// Simulate new random data
+function updateChart() {
+  const newData = salesData.map(() => Math.floor(Math.random() * 250) + 50);
+  renderChart(newData);
+}
